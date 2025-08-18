@@ -54,7 +54,7 @@ export default function Home() {
             Browser Not Supported
           </h2>
           <p className="text-gray-600">
-            Your browser doesn't support audio recording. Please use a modern browser like Chrome, Firefox, or Safari.
+            Your browser doesn&apos;t support audio recording. Please use a modern browser like Chrome, Firefox, or Safari.
           </p>
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function Home() {
                 <li>Select your preferred language for better recognition accuracy</li>
                 <li>Click the record button to start recording your voice</li>
                 <li>Speak clearly into your microphone</li>
-                <li>Click the stop button when you're finished</li>
+                <li>Click the stop button when you&apos;re finished</li>
                 <li>Wait for the AI to transcribe your audio to text</li>
                 <li>Copy or download the transcribed text</li>
               </ol>
