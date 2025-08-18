@@ -80,18 +80,34 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 5. **Get Results**: Wait for the AI to process and transcribe your audio
 6. **Export Text**: Copy the text to clipboard or download as a file
 
-## Deployment
+## Quick Deploy to Vercel 🚀
 
-### Deploy to Vercel
+### One-Click Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app)
 
-1. Push your code to GitHub
-2. Connect your GitHub repository to Vercel
-3. Configure environment variables in Vercel dashboard:
-   - `DASHSCOPE_API_KEY`: Your Qwen API key
-   - `DASHSCOPE_BASE_URL`: API base URL
-4. Deploy
+### Manual Deploy Steps
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fqwen-speech-app)
+1. **Fork or Clone this repository**
+2. **Get your Qwen API Key**:
+   - Visit [DashScope Console](https://dashscope.console.aliyun.com/)
+   - Sign up/Login to Alibaba Cloud
+   - Create a new API key (format: `sk-xxxxxxxxxxxxx`)
+3. **Deploy to Vercel**:
+   - Connect your GitHub repository to [Vercel](https://vercel.com)
+   - Add environment variables:
+     - `DASHSCOPE_API_KEY`: Your actual API key  
+     - `DASHSCOPE_BASE_URL`: `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
+   - Click Deploy
+
+### Local Development
+```bash
+git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
+cd qwen-speech-recognition-app
+npm install
+cp .env.example .env.local
+# Edit .env.local with your API key
+npm run dev
+```
 
 ### Manual Deployment Steps
 
