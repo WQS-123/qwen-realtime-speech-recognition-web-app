@@ -82,8 +82,35 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Quick Deploy to Vercel 🚀
 
-### One-Click Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app)
+### One-Click Deploy (Auto-configured Environment Variables)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app&env=DASHSCOPE_API_KEY&envDescription=Get%20your%20API%20key%20from%20DashScope%20Console&envLink=https%3A%2F%2Fdashscope.console.aliyun.com%2F)
+
+### Automated Script Deploy (Recommended for Local Development)
+
+If you have cloned the project locally, use our automated deployment script:
+
+**Linux/Mac:**
+```bash
+git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
+cd qwen-speech-recognition-app
+npm install
+./scripts/setup-vercel.sh
+```
+
+**Windows:**
+```cmd
+git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
+cd qwen-speech-recognition-app
+npm install
+scripts\setup-vercel.bat
+```
+
+**What the script does:**
+- ✅ Installs Vercel CLI automatically
+- ✅ Prompts for your API key with validation
+- ✅ Configures all environment variables
+- ✅ Deploys to production in one command
+- ✅ Provides your live app URL
 
 ### Manual Deploy Steps
 
@@ -94,9 +121,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
    - Create a new API key (format: `sk-xxxxxxxxxxxxx`)
 3. **Deploy to Vercel**:
    - Connect your GitHub repository to [Vercel](https://vercel.com)
-   - Add environment variables:
+   - Environment variables are **pre-configured**, you only need to enter:
      - `DASHSCOPE_API_KEY`: Your actual API key  
-     - `DASHSCOPE_BASE_URL`: `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
    - Click Deploy
 
 ### Local Development

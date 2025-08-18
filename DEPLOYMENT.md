@@ -2,12 +2,41 @@
 
 ## 🚀 快速部署到Vercel (推荐)
 
-### 方法一：一键部署 
-点击下面的按钮直接部署：
+### 方法一：一键部署（自动配置环境变量）
+点击下面的按钮直接部署，系统会自动提示你输入API密钥：
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app&env=DASHSCOPE_API_KEY&envDescription=Get%20your%20API%20key%20from%20DashScope%20Console&envLink=https%3A%2F%2Fdashscope.console.aliyun.com%2F)
 
-### 方法二：手动部署
+🎯 **优势**：
+- ✅ 自动检测需要的环境变量
+- ✅ 提供获取API密钥的直链
+- ✅ 预设默认值，只需填入API密钥
+- ✅ 无需手动配置任何其他设置
+
+### 方法二：使用自动配置脚本 (推荐本地用户)
+
+如果你已经克隆了项目到本地，可以使用我们提供的自动配置脚本：
+
+**Linux/Mac用户：**
+```bash
+cd qwen-speech-recognition-app
+./scripts/setup-vercel.sh
+```
+
+**Windows用户：**
+```cmd
+cd qwen-speech-recognition-app
+scripts\setup-vercel.bat
+```
+
+脚本会自动：
+- ✅ 检查和安装Vercel CLI
+- ✅ 引导你输入API密钥
+- ✅ 自动配置所有环境变量
+- ✅ 一键部署到生产环境
+- ✅ 提供访问链接
+
+### 方法三：手动部署
 
 #### 1. 获取阿里云API密钥
 - 访问 [DashScope控制台](https://dashscope.console.aliyun.com/)
