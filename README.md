@@ -1,210 +1,137 @@
-# Qwen Speech Recognition Web App
+# Qwen语音识别Web应用
 
-A modern web application that converts speech to text using Qwen's powerful AI speech recognition API. Built with Next.js, React, and Tailwind CSS.
+一个现代化的语音转文字Web应用，使用阿里云通义千问的强大AI语音识别API。基于Next.js、React和Tailwind CSS构建。
 
-## Features
+## ✨ 功能特性
 
-- 🎤 **Real-time Audio Recording** - Record directly from your browser
-- 🌍 **Multi-language Support** - Supports Chinese, English, Japanese, Korean, German, Spanish, French, and Italian
-- 🎵 **Audio Waveform Visualization** - Visual feedback during recording
-- 📝 **Text Export** - Copy to clipboard or download as text file
-- 🎨 **Beautiful UI** - Modern, responsive design with Tailwind CSS
-- 🔐 **Secure API Integration** - Server-side API calls to protect your keys
-- ⚡ **Fast Processing** - Powered by Qwen-Audio AI model
+- 🎤 **实时音频录制** - 直接在浏览器中录制语音
+- 🌍 **多语言支持** - 支持中文、英文、日语、韩语、德语、西班牙语、法语、意大利语
+- 🎵 **音频波形可视化** - 录制时的实时视觉反馈
+- 📝 **文本导出** - 复制到剪贴板或下载为文本文件
+- 🎨 **现代化UI** - 响应式设计，支持桌面端和移动端
+- 🔐 **安全API集成** - 服务端API调用保护密钥安全
+- ⚡ **快速处理** - 基于通义千问音频模型
 
-## Prerequisites
+## 🛠️ 运行要求
 
 - Node.js 18+ 
-- npm or yarn
-- A modern web browser with microphone support (Chrome, Firefox, Safari)
-- Alibaba Cloud DashScope API key (for Qwen AI)
+- npm 或 yarn
+- 现代浏览器(Chrome、Firefox、Safari)，支持麦克风功能
+- 阿里云DashScope API密钥
 
-## Getting Started
+## 🚀 快速开始
 
-### 1. Clone the repository
+### 1. 克隆项目
 
 ```bash
-git clone <your-repo-url>
-cd qwen-speech-app
+git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
+cd qwen-speech-recognition-app
 ```
 
-### 2. Install dependencies
+### 2. 安装依赖
 
 ```bash
 npm install
 ```
 
-### 3. Set up environment variables
-
-Copy `.env.example` to `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-Edit `.env.local` and add your Qwen API credentials:
-
-```bash
-# Get your API key from: https://dashscope.console.aliyun.com/
-DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-# API Base URL (usually no need to change)
-DASHSCOPE_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
-
-# Next.js Configuration
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_random_secret_here
-```
-
-### 4. Get Qwen API Key
-
-1. Go to [Alibaba Cloud DashScope Console](https://dashscope.console.aliyun.com/)
-2. Sign up or log in to your account
-3. Create a new API key
-4. Copy the API key to your `.env.local` file
-
-### 5. Run the development server
+### 3. 启动应用
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+🎉 **应用已启动！** 打开浏览器访问 [http://localhost:3000](http://localhost:3000) 即可使用语音识别功能！
 
-## How to Use
+## 📱 使用方法
 
-1. **Select Language**: Choose your preferred language for better recognition accuracy
-2. **Start Recording**: Click the blue record button to begin recording
-3. **Speak Clearly**: Speak into your microphone clearly and at normal volume
-4. **Stop Recording**: Click the red stop button when finished
-5. **Get Results**: Wait for the AI to process and transcribe your audio
-6. **Export Text**: Copy the text to clipboard or download as a file
+1. **选择语言**: 选择你要识别的语言以提高准确率
+2. **开始录制**: 点击蓝色录制按钮开始录音
+3. **清晰发声**: 对着麦克风清晰地说话
+4. **停止录制**: 录制完成后点击红色停止按钮
+5. **获取结果**: 等待AI处理并转换为文字
+6. **导出文本**: 复制文字到剪贴板或下载为文件
 
-## Quick Deploy to Vercel 🚀
+## 🔧 技术栈
 
-### One-Click Deploy (Auto-configured Environment Variables)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWQS-123%2Fqwen-speech-recognition-app&env=DASHSCOPE_API_KEY&envDescription=Get%20your%20API%20key%20from%20DashScope%20Console&envLink=https%3A%2F%2Fdashscope.console.aliyun.com%2F)
+- **框架**: Next.js 15
+- **语言**: TypeScript
+- **样式**: Tailwind CSS 4
+- **AI服务**: 阿里云通义千问音频模型
+- **音频处理**: Web Audio API
+- **状态管理**: React Hooks
 
-### Automated Script Deploy (Recommended for Local Development)
-
-If you have cloned the project locally, use our automated deployment script:
-
-**Linux/Mac:**
-```bash
-git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
-cd qwen-speech-recognition-app
-npm install
-./scripts/setup-vercel.sh
-```
-
-**Windows:**
-```cmd
-git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
-cd qwen-speech-recognition-app
-npm install
-scripts\setup-vercel.bat
-```
-
-**What the script does:**
-- ✅ Installs Vercel CLI automatically
-- ✅ Prompts for your API key with validation
-- ✅ Configures all environment variables
-- ✅ Deploys to production in one command
-- ✅ Provides your live app URL
-
-### Manual Deploy Steps
-
-1. **Fork or Clone this repository**
-2. **Get your Qwen API Key**:
-   - Visit [DashScope Console](https://dashscope.console.aliyun.com/)
-   - Sign up/Login to Alibaba Cloud
-   - Create a new API key (format: `sk-xxxxxxxxxxxxx`)
-3. **Deploy to Vercel**:
-   - Connect your GitHub repository to [Vercel](https://vercel.com)
-   - Environment variables are **pre-configured**, you only need to enter:
-     - `DASHSCOPE_API_KEY`: Your actual API key  
-   - Click Deploy
-
-### Local Development
-```bash
-git clone https://github.com/WQS-123/qwen-speech-recognition-app.git
-cd qwen-speech-recognition-app
-npm install
-cp .env.example .env.local
-# Edit .env.local with your API key
-npm run dev
-```
-
-### Manual Deployment Steps
-
-1. **Build the application**:
-```bash
-npm run build
-```
-
-2. **Set environment variables** in your hosting platform:
-```bash
-DASHSCOPE_API_KEY=your_api_key
-DASHSCOPE_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
-```
-
-3. **Deploy** using your preferred method (Vercel, Netlify, etc.)
-
-## Technology Stack
-
-- **Framework**: Next.js 15
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **AI Service**: Alibaba Cloud Qwen-Audio
-- **Audio Processing**: Web Audio API
-- **State Management**: React Hooks
-
-## Browser Compatibility
+## 🌏 浏览器兼容性
 
 - Chrome 50+
 - Firefox 55+
 - Safari 14+
 - Edge 79+
 
-**Note**: Microphone access requires HTTPS in production.
+**注意**: 麦克风访问需要HTTPS环境（本地开发使用localhost可以）。
 
-## API Endpoints
+## 🛠️ API说明
 
 ### POST `/api/speech`
-Transcribe audio to text using Qwen AI.
+将音频转换为文字
 
-**Parameters**:
-- `audio`: Audio file (FormData)
-- `language`: Language code (optional, default: 'auto')
+**参数**:
+- `audio`: 音频文件 (FormData)
+- `language`: 语言代码 (可选，默认: 'auto')
 
-**Response**:
+**响应**:
 ```json
 {
   "success": true,
-  "text": "Transcribed text here",
+  "text": "转换后的文字内容",
   "duration": 10
 }
 ```
 
-## Contributing
+## 🔑 API密钥配置
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+如果需要使用自己的API密钥，请：
 
-## License
+1. 访问 [阿里云DashScope控制台](https://dashscope.console.aliyun.com/)
+2. 注册/登录账户并开通服务
+3. 创建API密钥
+4. 修改 `.env.local` 文件中的 `DASHSCOPE_API_KEY`
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🐛 常见问题
 
-## Support
+### 麦克风权限被拒绝
+- 确保浏览器允许麦克风权限
+- 检查设备麦克风是否正常工作
+- 在Chrome中访问chrome://settings/content/microphone检查权限
 
-If you encounter any issues:
+### API调用失败
+- 检查API密钥是否正确
+- 确认阿里云账户余额充足
+- 检查网络连接是否正常
 
-1. Check that your microphone is working and permissions are granted
-2. Ensure your API key is valid and has sufficient credits
-3. Try using a different browser
-4. Check the browser console for error messages
+### 音频录制失败
+- 使用支持的浏览器版本
+- 确保在HTTPS环境下使用
+- 检查浏览器控制台错误信息
 
-For more help, please open an issue on GitHub.
+## 📄 开源协议
+
+本项目基于 MIT 协议开源 - 详见 LICENSE 文件
+
+## 🤝 贡献
+
+1. Fork 本项目
+2. 创建功能分支
+3. 提交更改
+4. 推送到分支
+5. 创建 Pull Request
+
+## 📞 技术支持
+
+如遇问题：
+1. 查看浏览器控制台错误信息
+2. 检查 [GitHub Issues](https://github.com/WQS-123/qwen-speech-recognition-app/issues)
+3. 提交新的Issue详细说明问题
+
+---
+
+⭐ 如果这个项目对你有帮助，请给个星标支持！
