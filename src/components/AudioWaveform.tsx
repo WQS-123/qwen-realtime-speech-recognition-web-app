@@ -17,7 +17,7 @@ const AudioWaveform: React.FC<AudioWaveformProps> = ({
   height = 80
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const barsRef = useRef<number[]>(Array(50).fill(0));
 
   useEffect(() => {
@@ -82,7 +82,7 @@ const AudioWaveform: React.FC<AudioWaveformProps> = ({
     }
 
     return () => {
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
