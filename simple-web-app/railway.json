@@ -1,0 +1,19 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "python api_server.py",
+    "healthcheckPath": "/api/health"
+  },
+  "env": {
+    "PORT": {
+      "description": "Port the application runs on",
+      "default": "8080"
+    },
+    "DASHSCOPE_API_KEY": {
+      "description": "DashScope API key for speech recognition",
+      "required": true
+    }
+  }
+}

@@ -24,8 +24,8 @@ from dashscope.audio.asr import Recognition, RecognitionCallback, RecognitionRes
 # 加载环境变量
 load_dotenv()
 
-# 创建Flask应用
-app = Flask(__name__)
+# 创建Flask应用，支持静态文件服务
+app = Flask(__name__, static_folder='.', static_url_path='')
 app.config['SECRET_KEY'] = 'your-secret-key'
 CORS(app, origins="*")
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
@@ -103,13 +103,16 @@ class RealtimeCallback(RecognitionCallback):
 
 @app.route('/')
 def index():
-    """返回主页"""
-    return send_from_directory('.', 'index.html')
+    """主页"""
+    return app.send_static_file('index.html')
 
 @app.route('/<path:path>')
 def static_files(path):
     """静态文件服务"""
-    return send_from_directory('.', path)
+    try:
+        return app.send_static_file(path)
+    except:
+        return app.send_static_file('index.html')
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
@@ -290,12 +293,14 @@ def internal_error(e):
     }), 500
 
 if __name__ == '__main__':
+    port = int(os.getenv('PORT', 5008))  # 支持环境变量端口配置
+    
     print("🎤 Qwen实时语音识别API服务器启动中...")
     print(f"📡 API密钥配置: {'✅ 已配置' if DASHSCOPE_API_KEY else '❌ 未配置'}")
     print("🔧 使用paraformer-realtime-v2模型")
     print("🌐 支持WebSocket实时音频流")
     print("⚡ 真正的实时识别，无需文件上传")
-    print(f"🚀 服务器将在 http://localhost:5008 启动")
+    print(f"🚀 服务器将在 http://0.0.0.0:{port} 启动")
     print("📝 WebSocket端点: /socket.io/")
     print("🏥 健康检查: GET /api/health")
     print("-" * 50)
@@ -303,7 +308,7 @@ if __name__ == '__main__':
     socketio.run(
         app,
         host='0.0.0.0',
-        port=5008,
-        debug=True,
+        port=port,
+        debug=False,  # 生产环境关闭调试
         allow_unsafe_werkzeug=True
     )
