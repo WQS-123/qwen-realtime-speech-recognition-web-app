@@ -51,7 +51,7 @@ export const formatDuration = (seconds: number): string => {
 export const isAudioRecordingSupported = (): boolean => {
   return !!(
     navigator.mediaDevices &&
-    navigator.mediaDevices.getUserMedia &&
+    typeof navigator.mediaDevices.getUserMedia === 'function' &&
     window.MediaRecorder
   );
 };
