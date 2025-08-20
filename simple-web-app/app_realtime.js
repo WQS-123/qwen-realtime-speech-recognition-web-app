@@ -68,8 +68,8 @@ class QwenRealtimeSpeechApp {
 
     initWebSocket() {
         try {
-            // 连接到Socket.IO服务器
-            this.socket = io('http://localhost:5008');
+            // 连接到Socket.IO服务器 - 使用动态主机检测
+            this.socket = io();
 
             this.socket.on('connect', () => {
                 console.log('✅ 已连接到实时语音识别服务');
